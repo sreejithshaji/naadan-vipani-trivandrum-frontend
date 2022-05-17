@@ -4,10 +4,7 @@ import { MobileNavContainer, Icon, CloseIcon, MobileNavWrapper, MobileNavMenu, M
 const MobileNav = ({ isOpen, toggle }) => {
     
     return (
-        <MobileNavContainer 
-        // isOpen={isOpen} 
-        // onClick={toggle}  
-        >
+        <MobileNavContainer>
             <Icon onClick={toggle}>
                 <CloseIcon />
             </Icon>

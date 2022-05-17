@@ -22,7 +22,6 @@ const AddressCartWrapper = styled.div`
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-       
 
         @media screen and (max-width: 1000px){
             grid-template-columns: 1fr;

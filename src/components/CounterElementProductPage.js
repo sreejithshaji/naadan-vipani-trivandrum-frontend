@@ -107,69 +107,66 @@ const CounterElementProductPage = ({productId,quantity,  isInCart }) => {
     
   const contextValues = useContext(ContextConsumer);
   
-  var countForFunction=quantity;
-  const[count,setCount]=useState(quantity);
-
-  const inc=()=>{
-      countForFunction+=1
-      if (countForFunction>5)
-      {
-          countForFunction=5;
-      }
-      console.log("countForFunction:",countForFunction)
-      setCount(countForFunction)
-    //   contextValues.AddToCart(productId , countForFunction)
-  }
-  const dec=()=>{
-    countForFunction-=1
-    if (countForFunction<1)
-    {
-        countForFunction=1;
-    }
-    console.log("countForFunction:",countForFunction)
-    setCount(countForFunction)
-    // contextValues.AddToCart(productId , countForFunction)
-  }
-
+//   var countForFunction=quantity;
 //   const[count,setCount]=useState(quantity);
+
+
+
+
 //   const inc=()=>{
-//     if(count>5){
-//         setCount(5);
-//     }
-//     else 
-//     {
-//         setCount(count+1);
-//     }
-//     console.log("cart count inc: ", count+1 )
-//     contextValues.AddToCart(productId , count+1)
+//       countForFunction+=1
+//       if (countForFunction>5)
+//       {
+//           countForFunction=5;
+//       }
+//       console.log("countForFunction:",countForFunction)
+//       setCount(countForFunction)
 //   }
-  
+
 //   const dec=()=>{
-//     if(count<1)
+//     countForFunction-=1
+//     if (countForFunction<1)
 //     {
-//         setCount(1);
+//         countForFunction=1;
 //     }
-//     else{
-//         // count-=1
-//         setCount(count-1);
-//     }
-//     console.log("cart count dec: ", count-1 )
-//     contextValues.AddToCart(productId, count-1)
+//     console.log("countForFunction:",countForFunction)
+//     setCount(countForFunction)
 //   }
+
+
+
+// counter
+
+  const [counter, setCounter] = useState(quantity);
+  
+  const incrementCounter = () => setCounter(counter + 1);
+
+  let decrementCounter = () => setCounter(counter - 1);
+
+
+  if(counter>5) {
+    setCounter(5);
+  }
+  if(counter<=0) {
+    setCounter(1);
+  }
+
+// counter
+
 
   return (
     <MainContainer>
     <CounterContainer>
 
-        <ButtonContainer onClick={inc}>
+        <ButtonContainer onClick={incrementCounter}>
             {<MinusIcon/>}
         </ButtonContainer>
 
         <TextContainer>
-            <CounterTest>{count}</CounterTest>
+            <CounterTest>{counter}</CounterTest>
         </TextContainer>
 
-        <ButtonContainer onClick={dec}>
+        <ButtonContainer onClick={decrementCounter}>
             {<PlusIcon/>}
         </ButtonContainer>
 
@@ -179,7 +176,7 @@ const CounterElementProductPage = ({productId,quantity,  isInCart }) => {
 
     
         <ProductBtnWrapper>
-            <AddToBagBtn onClick={()=>{ contextValues.AddToCart(productId , count) }}  to='/' >
+            <AddToBagBtn onClick={()=>{ contextValues.AddToCart(productId , counter) }}  to='/' >
             Add to Cart { <BagIcon /> }
             </AddToBagBtn>
         </ProductBtnWrapper>

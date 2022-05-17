@@ -17,10 +17,6 @@ const AddressElement = () => {
 
 
 
-
-
-
-
 // MODAL
   const [show, setShow] = useState(true);
 
@@ -41,9 +37,7 @@ const AddressElement = () => {
         setShow(false)
       }
 
-
-    
-    //  setShow(!show)
+      //  setShow(!show)
     };
 // MODAL
 

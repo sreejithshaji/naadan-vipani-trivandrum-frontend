@@ -31,7 +31,6 @@ export const Nav = styled.nav`
         margin-top: -180px;
     }
 
-
 `;
 
 /*================= Navbar Container ==================*/
