@@ -11,6 +11,7 @@ import {ContextConsumer} from '../../utils/Context'
 import {constants} from '../../constants/values';
 
 import { useHistory } from "react-router-dom";
+import { MdHistoryEdu } from 'react-icons/md';
 
 const AddressElement = () => {
 
@@ -232,6 +233,7 @@ const AddressElement = () => {
       else{
         // console.log("order placing")
         contextValues.placeOrderToDb( inputs.order_slot , totalPriceIncDelivery);
+        history.push("/")
       }
     }
 

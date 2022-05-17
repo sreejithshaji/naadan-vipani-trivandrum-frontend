@@ -503,10 +503,10 @@ const placeOrderToDb = async (slot, total_amount)=>{
     .then(res =>{
         if(res.status === 201)
         {
-            setValues({
-                ...values,
-                products_veg : res.data, // match it from backend
-            })
+            // setValues({
+            //     ...values,
+            //     products_veg : res.data,
+            // })
             // console.log("res data : ", res.data );
         }
     }).catch(err=>{
