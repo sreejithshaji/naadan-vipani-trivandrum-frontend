@@ -39,6 +39,7 @@ export const HeroBg = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    
 
 `
 
@@ -49,8 +50,20 @@ export const VideoBg = styled.video`
     height: 100%;
     --o-object-fit: cover;
     object-fit: cover;
-    background: #232a34;
-    
+    // background: #232a34;
+    // background-image:'../../components/backimage.jpg';
+    background-image:'.src/components/backimage.jpg';
+`
+
+
+export const ImageBg = styled.video`
+    width: 100%;
+    height: 100%;
+    // --o-object-fit: cover;
+    object-fit: cover;
+    // background: #232a34;
+    background-image:url('https://img.freepik.com/free-photo/top-view-fruits-vegetables-cherry-tomatoes-cumcuat-tomatoes-cauliflower-zacchini-blue-table_140725-145422.jpg?t=st=1652751280~exp=1652751880~hmac=e175db7b25857ab77428e9adee6275c6ab59c1f9fafd70c0a23b3656bcd99015&w=1480');
+    // background-image:'.src/components/backimage.jpg';
 `
 
 /*================= Hero Section -> Content  ==================*/

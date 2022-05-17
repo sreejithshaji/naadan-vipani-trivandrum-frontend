@@ -35,7 +35,9 @@ const AddressElement = () => {
         seteditName(true) 
       }
       else{
+        console.log("move forward")
         seteditName(false) 
+        setShow(false)
       }
 
 

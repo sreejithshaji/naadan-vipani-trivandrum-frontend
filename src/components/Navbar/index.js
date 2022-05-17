@@ -90,7 +90,7 @@ const Navbar = ({ toggle }) => {
                     onClick={()=>{
                         history.push("/")
                     }} > 
-                    <h5>naadanvipani</h5>
+                    <h5>horticorpOnline</h5>
                 </NavLogo>  
             
                 <MenuIcon onClick={toggle} >

@@ -49,7 +49,7 @@ const Footer = () => {
                 <SocialMediaContainer>
                     <SocialMediaWrap>
                         <NaadanvipaniLogo to='/' onClick={toggleHome}>naadanvipani</NaadanvipaniLogo>
-                        <WebsiteRights>naadanvipani © {new Date().getFullYear()} All rights reserved. </WebsiteRights>
+                        <WebsiteRights>horticorpOnline © {new Date().getFullYear()} All rights reserved. </WebsiteRights>
                         <SocialMediaIcons>
                             <SocialMediaIconLink href="/" target="_blank" aria-label="Facebook">
                                 <FaFacebook />
