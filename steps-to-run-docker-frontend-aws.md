@@ -24,7 +24,7 @@ git clone "https://github.com/sreejithshaji/naadan-vipani-trivandrum-frontend.gi
 
 cd to the new git cloned file 
 
-sudo docker build --no-cache -t html-server-image:v1 .
+sudo docker build -t html-server-image:v1 .
 
 sudo docker run -d -p 80:80 html-server-image:v1
 

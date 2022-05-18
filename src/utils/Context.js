@@ -349,7 +349,7 @@ function  ContextProvider(props) {
 
 
     const initKitProducts = async ()=>{
-        console.log("values at init kit  :  " , userValues.user_address[0] );
+        console.log("values at init kit here  :  " , userValues.user_address[0] );
 
         console.log("values at init kit, data.district :" , data.district );
         console.log("values at init kit, data.block :" , data.block );
