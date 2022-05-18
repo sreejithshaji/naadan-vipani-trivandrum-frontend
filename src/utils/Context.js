@@ -352,13 +352,13 @@ function  ContextProvider(props) {
         console.log("values at init kit here  :  " , userValues.user_address[0] );
 
         try{
-            var data =  userValues.user_address[0];
+            var dataLoader =  userValues.user_address[0];
 
 
-        console.log("values at init kit, data.district :" , data.district );
-        console.log("values at init kit, data.block :" , data.block );
+        console.log("values at init kit, dataLoader.district :" , dataLoader.district );
+        console.log("values at init kit, dataLoader.block :" , dataLoader.block );
         
-            console.log("init kit called user Data is : ", data);
+            console.log("init kit called user dataLoader is : ", dataLoader);
             // await fetch('https://api.npms.io/v2/search?q=react')
             
             await axios({
@@ -368,8 +368,8 @@ function  ContextProvider(props) {
                                     'content-type': 'application/json;charset=utf-8',
                                 },
                 'data'      :  {
-                                    district:data.district, 
-                                    block:data.block,
+                                    district:`${userValues.user_address[0].district}`, 
+                                    block:`1`,
                             },                  
             })
             .then(res =>{
