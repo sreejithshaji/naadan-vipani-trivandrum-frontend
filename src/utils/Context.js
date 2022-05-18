@@ -352,7 +352,7 @@ function  ContextProvider(props) {
         console.log("values at init kit  :  " , userValues.user_address[0] );
         try{
             var data =  userValues.user_address[0];
-            // console.log("init kit ");
+            console.log("init kit called user Data is : ", data);
             // await fetch('https://api.npms.io/v2/search?q=react')
             
             await axios({

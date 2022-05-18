@@ -655,7 +655,7 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
         
                   <button className="continue_btn" style={{ display:'inline-block', backgroundColor :"green" }} onClick={()=>{ 
                     PlaceOrder() 
-                    alert("Your order has been plased successfully")
+                    alert("Your order has been placed successfully")
                     // alert
                     
                     history.push("/")
