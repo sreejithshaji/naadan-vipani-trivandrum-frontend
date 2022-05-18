@@ -351,10 +351,13 @@ function  ContextProvider(props) {
     const initKitProducts = async ()=>{
         console.log("values at init kit here  :  " , userValues.user_address[0] );
 
-        console.log("values at init kit, data.district :" , data.district );
-        console.log("values at init kit, data.block :" , data.block );
         try{
             var data =  userValues.user_address[0];
+
+
+        console.log("values at init kit, data.district :" , data.district );
+        console.log("values at init kit, data.block :" , data.block );
+        
             console.log("init kit called user Data is : ", data);
             // await fetch('https://api.npms.io/v2/search?q=react')
             
