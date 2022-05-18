@@ -188,7 +188,9 @@ function App() {
 
     try{
       await contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
-    }catch{
+    }
+    catch
+    {
       contextValues.UpdateAddressToDbForBlockAndDistrictSet("name", "name", "name", "name", contextValues.district, contextValues.block )
     }
     

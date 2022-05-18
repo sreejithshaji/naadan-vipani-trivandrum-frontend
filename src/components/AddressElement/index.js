@@ -179,9 +179,17 @@ const AddressElement = () => {
 
 
   var editstartBool=false;
-  if(inputs.full_name==="" && contextValues.user_address.full_name==="name" ){
+  // console.log(" contextValues.user_address.full_name:  " ,contextValues.user_address.full_name )
+
+  // console.log(" contextValues bool:  " ,contextValues.user_address.full_name==="name"  )
+
+  
+  // console.log(" inputs.full_name:  " ,inputs.full_name )
+  if(inputs.full_name==="" || contextValues.user_address.full_name==="name" ){
     editstartBool=true;
   }
+
+  console.log(" editstartBool : ", editstartBool)
   
   const [editName , seteditName] = useState(editstartBool) ;
 
