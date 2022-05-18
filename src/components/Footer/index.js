@@ -1,5 +1,5 @@
 import React from 'react'
-import { FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinkItems, FooterLinkTitle, FooterLink, SocialMediaContainer, SocialMediaWrap, NaadanvipaniLogo, WebsiteRights, SocialMediaIcons, SocialMediaIconLink  } from './FooterElements'
+import { FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinkItems, WebsiteRight,FooterLinkTitle, FooterLink, SocialMediaContainer, SocialMediaWrap, NaadanvipaniLogo, WebsiteRights, SocialMediaIcons, SocialMediaIconLink  } from './FooterElements'
 import { FaFacebook, FaYoutube, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import { animateScroll as scroll } from 'react-scroll'
 
@@ -48,8 +48,14 @@ const Footer = () => {
                 </FooterLinksContainer>
                 <SocialMediaContainer>
                     <SocialMediaWrap>
-                        <NaadanvipaniLogo to='/' onClick={toggleHome}>naadanvipani</NaadanvipaniLogo>
-                        <WebsiteRights>horticorpOnline © {new Date().getFullYear()} All rights reserved. </WebsiteRights>
+                        <NaadanvipaniLogo to='/' onClick={toggleHome}>horticorpOnline</NaadanvipaniLogo>
+
+                        
+                        {/* <WebsiteRights>horticorpOnline © {new Date().getFullYear()} All rights reserved. </WebsiteRights> */}
+                        <WebsiteRight>horticorpOnline © {new Date().getFullYear()} All rights reserved. </WebsiteRight>
+                        
+
+                        {/* x<WebsiteRights>tinQbit © {new Date().getFullYear()}  </WebsiteRights> */}
                         <SocialMediaIcons>
                             <SocialMediaIconLink href="/" target="_blank" aria-label="Facebook">
                                 <FaFacebook />
@@ -65,6 +71,8 @@ const Footer = () => {
                             </SocialMediaIconLink>
                         </SocialMediaIcons>
                     </SocialMediaWrap>
+                    {/* <WebsiteRight>horticorpOnline © {new Date().getFullYear()} All rights reserved. </WebsiteRight> */}
+
                 </SocialMediaContainer>
             </FooterWrap>
         </FooterContainer>

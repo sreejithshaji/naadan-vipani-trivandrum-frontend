@@ -53,7 +53,7 @@ const AddToCartlist = ({heading, data}) => {
                                         </B> */}
                                         <B>
                                         
-                                            <ProductNewPrice>  ₹ {cart_items.price*cart_items.quantity} ( {constants.MINIMUM_QUANTITY} gm packet ) </ProductNewPrice>
+                                            <ProductNewPrice>  ₹ {cart_items.price*cart_items.quantity} </ProductNewPrice>
 
                                         </B>
                                     </A>

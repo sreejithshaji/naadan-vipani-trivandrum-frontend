@@ -1,5 +1,8 @@
 
+
 export const isAuthenticated = () => {
+
+
     // this function is used to check if the person is authenticated or not
     if(typeof window == 'undefined')
     {

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.footer`
     background-color: #010606;
+    margin-top:3%;
+    margin-bottom:0px;
 
 
 `
@@ -132,7 +134,12 @@ export const WebsiteRights = styled.small`
     margin-bottom: 16px;
     cursor: default;
 `
-
+export const WebsiteRight = styled.small`
+    color: #fff;
+    margin-bottom: 16px;
+    cursor: default;
+    text-align: center;
+`
 export const SocialMediaIcons = styled.div`
     display: flex;
     justify-content: space-between;

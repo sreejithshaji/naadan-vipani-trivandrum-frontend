@@ -143,6 +143,8 @@ const Navbar = ({ toggle }) => {
             <NavBtn>
                 {/* <NavBtnLink to="/cartlist" onClick={toggle} >cart</NavBtnLink> */}
                  <NavBtnLink to='/login' onClick={()=>{ console.log("signout")
+                                                        contextValues.setblock(0)
+                                                        contextValues.setdistrict(0)
                                                         signOut();
                                                         handleSignout();
                                                         }} smooth={true} duration={500} spy={true} offset={-80} exact='true'  >Logout</NavBtnLink>

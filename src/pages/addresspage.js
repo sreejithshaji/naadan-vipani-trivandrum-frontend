@@ -8,8 +8,7 @@ import AddressElement from '../components/AddressElement';
 
 
 import Footer from '../components/Footer'
-import MobileNav from '../components/MobileNav'
-import Navbar from '../components/Navbar'
+import Navbar  from '../components/MainNav/Navbar.js'
 
 const AddressCartWrapper = styled.div`
         // max-width: 100vh;
@@ -47,8 +46,10 @@ const Addresspage = ({toggle}) => {
 
     return (
         <div>
-            <MobileNav isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            {/* <MobileNav isOpen={isOpen} toggle={toggle}/>
+            <Navbar toggle={toggle}/> */}
+
+            <Navbar/>
 
             <AddressCartWrapper>
    

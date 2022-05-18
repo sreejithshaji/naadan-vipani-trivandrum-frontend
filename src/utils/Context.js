@@ -15,8 +15,8 @@ function  ContextProvider(props) {
 
 // FOR CHANGING BLOCK AND DISTRICT FROM LOGIN SCREEN
     
-    const [block, setblock] = useState("1")
-    const [district, setdistrict] = useState("1")
+    const [block, setblock] = useState("0")
+    const [district, setdistrict] = useState("0")
 
 // FOR CHANGING BLOCK AND DISTRICT FROM LOGIN SCREEN
 
@@ -320,10 +320,10 @@ function  ContextProvider(props) {
                                 house_name:"name",
                                 street_name:"name", 
                                 pincode:"name",
-                                // district:district, 
-                                // block:block,
-                                district:"1", 
-                                block:"1",
+                                district:`${district}`, 
+                                block:`${block}`, 
+                                // district:"1", 
+                                // block:"1",
                            },
         })
         .then(res =>{
@@ -413,6 +413,64 @@ function  ContextProvider(props) {
         }
         
     }
+
+
+
+
+
+
+    const UpdateAddressToDbForBlockAndDistrictSet = async (full_name, house_name, street_name, pincode, newDistrict, newBlock )=>{
+        
+        let phoneNo = isAuthenticated().phoneNumber;
+        
+        console.log(" update address : " , userValues.user_address[0] );
+
+        let phoneNumber;
+        try{
+            phoneNumber = (phoneNo).substring(3);
+        }
+        catch{
+
+        }
+
+        // return 0;
+        // newDistrict, newBlock
+        await axios({
+            'method'    :   'POST',
+            'url'       :   `${Base_URL}/user/`,
+            'headers'   :   {
+                                'content-type': 'application/json;charset=utf-8',
+                            },
+            'data'      :  {
+                                id:`${phoneNumber}`,
+                                full_name:`${full_name}`,
+                                house_name:house_name,
+                                street_name:street_name, 
+                                pincode:pincode,
+                                district:newDistrict, 
+                                block:newBlock,
+                           },
+        })
+        .then(res =>{
+            if(res.status === 201)
+            {
+                // console.log(" data pushed : " , res.data )
+                
+                setUserValues({
+                                ...userValues,
+                                user_address : [res.data], 
+                            })
+
+                initUserAddress()
+
+                initKitProducts()
+            }
+        }).catch(err=>{
+            
+        })
+        
+    }
+
 
 
 
@@ -562,6 +620,7 @@ const placeOrderToDb = async (slot, total_amount)=>{
             
             placeOrderToDb:placeOrderToDb,
             UpdateAddressToDb:UpdateAddressToDb,
+            UpdateAddressToDbForBlockAndDistrictSet:UpdateAddressToDbForBlockAndDistrictSet,
 
             RemoveFromCart:RemoveFromCart,
 

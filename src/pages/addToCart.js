@@ -3,15 +3,36 @@ import { useState } from 'react'
 import styled from "styled-components";
 
 import Footer from '../components/Footer'
-import MobileNav from '../components/MobileNav'
-import Navbar from '../components/Navbar'
+// import MobileNav from '../components/MobileNav'
+// import Navbar from '../components/Navbar'
 import { productData } from '../components/Products/ProductsData'
 import AddToCartlist from '../components/AddToCartElement'
 import SubtotalElement from "../components/SubtotalElement/index";
 
 import {ContextConsumer} from '../utils/Context'
-
+import Navbar  from '../components/MainNav/Navbar.js'
 const CartWrapper = styled.div`
+        // max-width: 100vh;
+        // margin:10% 0% 0% 0%;
+        // display: grid;
+        // grid-template-columns: 2fr 1fr;
+        
+        // grid-gap: 0px;
+        // padding: 0 0px;
+        // justify-content: center;
+        // align-items: center;
+        // flex-wrap: wrap;
+       
+
+        // @media screen and (max-width: 1000px){
+        //     grid-template-columns: 1fr 1fr;
+        // }
+        // @media screen and (max-width: 768px){
+        //     grid-template-columns: 1fr;
+        //     padding: 0 0px ;
+        //     justify-content: center;
+        // }
+
         // max-width: 100vh;
         margin:10% 0% 0% 0%;
         display: grid;
@@ -23,7 +44,6 @@ const CartWrapper = styled.div`
         align-items: center;
         flex-wrap: wrap;
        
-
         @media screen and (max-width: 1000px){
             grid-template-columns: 1fr 1fr;
         }
@@ -56,8 +76,9 @@ const AddToCart = () => {
 
     return (
         <div>
-            <MobileNav isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            {/* <MobileNav isOpen={isOpen} toggle={toggle}/>
+            <Navbar toggle={toggle}/> */}
+            <Navbar/>
             <CartWrapper>
             {/* <MobileNav isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/> */}

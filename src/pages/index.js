@@ -1,9 +1,13 @@
 import React ,{useContext, useEffect} from 'react'
 import { useState } from 'react'
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+
 import HeroSection from '../components/HeroSection'
-import MobileNav from '../components/MobileNav'
+
+// import Navbar from '../components/Navbar';
+// import MobileNav from '../components/MobileNav'
+
+import Navbar  from '../components/MainNav/Navbar.js'
 
 import Products from '../components/Products'
 import { productData } from '../components/Products/ProductsData'
@@ -62,8 +66,9 @@ const Home = () => {
 
     return (
         <div>
-            <MobileNav isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            {/* <MobileNav isOpen={isOpen} toggle={toggle}/> */}
+            {/* <Navbar toggle={toggle}/> */}
+            <Navbar/>
             <HeroSection />
             <Products heading='Vegetables'/>        
             {/* <Products heading='Vegetables' data={productData} />         */}

@@ -59,9 +59,11 @@ function App() {
     setValues({ ...values, [name]: event.target.value })
     
     if(name==="district"){
+      console.log(" district: ", event.target.value   )
       contextValues.setblock( event.target.value )
     }
     if(name==="block"){
+      console.log(" block: ", event.target.value   )
       contextValues.setdistrict(event.target.value)
     }
 
@@ -82,7 +84,6 @@ function App() {
 
   const getOtp = () => {
     // this function sends otp to the mobile number using firebase. 
-
     
     let phoneNumber = "+91" + values.mobile
     console.log("otp section : " , phoneNumber );
@@ -99,20 +100,27 @@ function App() {
       // if the number is not entered this button will be visible 
       console.log("enter valid phone number" );
       
-      console.log("district : ", contextValues.district)
-      console.log("block : ", contextValues.block);
+      console.log("district : ", contextValues.district  )
+      
+      console.log("block : ",contextValues.block);
+      
 
-      if((values.mobile==="")||(values.mobile.length<10)){
+    if((values.mobile==="")||(values.mobile.length<10)){
         console.log("please enter valid phone number")
         
       }
-      
-  
     }
-    else if (!isAuthenticated() && (contextValues.district==="0")){   
+    // else if (!isAuthenticated() && (contextValues.district==="0")){   
+    //   console.log("please select valid district")
+    // }
+    // else if(!isAuthenticated() &&(contextValues.block==="0")){
+    //   console.log("please select valid block")
+    // }
+
+    else if ((contextValues.district==="0")){   
       console.log("please select valid district")
     }
-    else if(!isAuthenticated() &&(contextValues.block==="0")){
+    else if((contextValues.block==="0")){
       console.log("please select valid block")
     }
     else
@@ -130,11 +138,13 @@ function App() {
        
       if (contextValues.district=="0"){
         console.log("please select valid district")
-        // return;
+        SetshowGetOtpButton(true);
+        return;
       }
       if(contextValues.block=="0"){
         console.log("please select valid block")
-        // return;
+        SetshowGetOtpButton(true);
+        return;
       }
       
 
@@ -161,6 +171,27 @@ function App() {
 
   const RedirectToHome =() =>{
     // used to redirect to home screen 
+
+    // started
+    console.log("here")
+
+    var user_data = contextValues.user_address[0];
+
+    console.log("user_data : ", user_data)
+    // user_data[0].district = contextValues.district;
+    // user_data[0].block = contextValues.block;
+
+    // contextValues.setUserValues({
+    //   ...contextValues.userValues,
+    //   user_address : [user_data[0]],
+    // })
+
+    contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
+    
+    
+    console.log("completed")
+
+
       history.push("/")
   }
 
@@ -178,15 +209,21 @@ function App() {
         authenticate_save_jwt({
             phoneNumber : "+91" + values.mobile
         })
+
+
+
     })
     .then( async (data)=>{
           // await contextValues.initUserAddress()
-          console.log("data is : " )
+          // console.log("data is : " )
+
           RedirectToHome()
+
+
       })
     .catch(err=>{
       // if otp is wrong it enter here
-        console.log("error")
+        console.log("error :" , err )
         alert("error or wrong otp")
     })
 

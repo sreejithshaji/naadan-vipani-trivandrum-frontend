@@ -65,56 +65,47 @@ const Products = ({heading, data}) => {
     return (
         <ProductsContainer id="products">
             <ProductsH1>{heading}</ProductsH1>
-            <ProductsWrapper>
-                {contextValues.products_veg.map((product, index) => {
-                    
-                    const item= CheckExistanceOfProductInCart(product);
-                    // console.log( "product in cart :",  item  )
-
-                    var cartFound =item.foundIndex>-1;
-                    return (
-
-                        <ProductCard key={index}> 
-                        <ProductBadge >naadan</ProductBadge>    
-                        <ProductImage src={product.image_url}/>
-                        <ProductName>{product.name}</ProductName>
-
-
-                        <ProductNewPrice>₹{product.price} / {constants.MINIMUM_QUANTITY} gm</ProductNewPrice>
-
-                        <ProductDetailsWrapper>
-                            
-                            {
-                                cartFound?
-                                <CounterElementProductPage quantity={item.output.quantity} isInCart={true} productId={product.id} />
-                                :
-                                <CounterElementProductPage quantity={1} isInCart={false} productId={product.id} />
-                                
-                            }
-                                
-                                
-                            
+            {  
+                contextValues.products_veg.length>0?
+                <ProductsWrapper>
+                    {contextValues.products_veg.map((product, index) => {
                         
-                            {/* <ProductPriceWrapper>
-                                <ProductNewPrice>₹{product.newPrice}</ProductNewPrice>
-                                <ProductOldPrice>₹{product.oldPrice}</ProductOldPrice>
-                            </ProductPriceWrapper> */}
+                        const item= CheckExistanceOfProductInCart(product);
+                        // console.log( "product in cart :",  item  )
 
-                            {/* <ProductBtnWrapper>
+                        var cartFound =item.foundIndex>-1;
+                        return (
 
-                                <AddToBagBtn onClick={()=>{ contextValues.AddToCart(product.id , 1) }}  to='/' >
-                                Add to Cart { <BagIcon /> }
-                                    </AddToBagBtn>
+                            <ProductCard key={index}> 
+                            <ProductBadge >naadan</ProductBadge>    
+                            <ProductImage src={product.image_url}/>
+                            <ProductName>{product.name}</ProductName>
+
+
+                            <ProductNewPrice>₹{product.price} / {constants.MINIMUM_QUANTITY} gm</ProductNewPrice>
+
+                            <ProductDetailsWrapper>
+                                
+                                {
+                                    cartFound?
+                                    <CounterElementProductPage quantity={item.output.quantity} isInCart={true} productId={product.id} />
+                                    :
+                                    <CounterElementProductPage quantity={1} isInCart={false} productId={product.id} />
                                     
-                            </ProductBtnWrapper> */}
+                                }
 
-                        </ProductDetailsWrapper>
-                        </ProductCard>
-                    )
+                            </ProductDetailsWrapper>
+                            </ProductCard>
+                            
+                        )
 
-                })}
-
-            </ProductsWrapper>
+                    })}
+                </ProductsWrapper>
+                :
+                <>
+                    <ProductsH1>Sorry, there are no products available for this location</ProductsH1>
+                </>
+            }
         </ProductsContainer>
     )
 }

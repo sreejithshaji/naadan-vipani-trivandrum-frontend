@@ -11,7 +11,7 @@ import {ContextConsumer} from '../../utils/Context'
 import {constants} from '../../constants/values';
 
 import { useHistory } from "react-router-dom";
-import { MdHistoryEdu } from 'react-icons/md';
+// import { MdHistoryEdu } from 'react-icons/md';
 
 const AddressElement = () => {
 
@@ -50,7 +50,7 @@ const AddressElement = () => {
 
       const contextValues = useContext(ContextConsumer);
 
-      const ENABLE_BLOCK_AND_DISTRICT_SECTION= 1;
+      const ENABLE_BLOCK_AND_DISTRICT_SECTION= 0;
 
       // history.push("/address");
 
@@ -375,7 +375,7 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
                                 <option value="2">Poojappura</option>
                             </select>
                           </>
-                          :
+                          : //eranakulam
                           inputs.district==="2"?
                           <>
                             <select name="block" id="block" class="select"
@@ -383,20 +383,46 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
                                       value={inputs.block || ""} 
                                       onChange={handleChange} required> 
                               <option value="0">select</option>
-                              <option value="1">Kochi</option>
-                              <option value="2">kaakkanadu</option>
+                              <option value="1">Infopark</option>
+                              <option value="2">Vazhakkala</option>
+                              <option value="3">Thrikkakkara</option>
+                              <option value="4">Vallayhoor nagar</option>
+                              <option value="5">Cusat</option>
                             </select>
                           </>
                           :
                           inputs.district==="3"?
                           <>
+                          {/* Alappuzha */}
+                          {/* Aryad, Alappuzha (M), Punnamada, Kommadi,District court, kalavoor,Mullakkal, Mannanchery */}
                             <select name="block" id="block" class="select"
                                       placeholder={inputs.block}  name="block" 
                                       value={inputs.block || ""} 
                                       onChange={handleChange} required> 
                               <option value="0">select</option>
-                              <option value="1">Alappuzha 1</option>
-                              <option value="2">Alappuzha 2</option>
+                              <option value="1">Arayad</option>
+                              <option value="2">Alappuzha (M)</option>
+                              <option value="3">Punnamada</option>
+                              <option value="4">Kommandi</option>
+                              <option value="5">Dist. Court</option>
+                              <option value="6">Mullakkal</option>
+                              <option value="7">Manchery</option>
+                            </select>
+                          </>
+                          
+                          :
+                          inputs.district==="4"?
+                          <>
+                          {/* Kottayam */}
+                          {/* Aryad, Alappuzha (M), Punnamada, Kommadi,District court, kalavoor,Mullakkal, Mannanchery */}
+                            <select name="block" id="block" class="select"
+                                      placeholder={inputs.block}  name="block" 
+                                      value={inputs.block || ""} 
+                                      onChange={handleChange} required> 
+                              <option value="0">select</option>
+                              <option value="1">Kanjikkuzhy</option>
+                              <option value="2">Manganam</option>
+                              <option value="3">Puthuppalli</option>
                             </select>
                           </>
                           
@@ -409,7 +435,7 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
                           }
 
                           <button className="continue_btn" onClick={()=>{ UpdateAddress() }} >
-                                      Change address
+                                      Confirm address
                           </button>
 
                       </>
@@ -468,8 +494,8 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
     <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6"  >
     <input 
       onChange={handleChange} 
-      type="radio" name="order_slot" id="radio3" value="4"/>
-    <label for="radio3">day after Tomorrow Morning Section-9am to 1pm</label>
+      type="radio" name="order_slot" id="radio4" value="4"/>
+    <label for="radio4">Tomorrow Morning Section-9am to 1pm</label>
   </div>
   </>
 
@@ -577,8 +603,8 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
     <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6"  >
     <input 
       onChange={handleChange} 
-      type="radio" name="order_slot" id="radio3" value="4"/>
-    <label for="radio3">day after Tomorrow Morning Section-9am to 1pm</label>
+      type="radio" name="order_slot" id="radio4" value="4"/>
+    <label for="radio4">Tomorrow Morning Section-9am to 1pm</label>
   </div>
   </>
 
@@ -596,17 +622,17 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
 
 
   <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6" style={{ alignItems:'center', textAlign:'center', alignSelf:'center' }} >
-    <h4 style={{ alignItems:'center', textAlign:'center' }} >Total Price : ${totalPriceIncDelivery}/-</h4>
+    <h4 style={{ alignItems:'center', textAlign:'center' }} >Total Price : ₹{totalPriceIncDelivery}/-</h4>
   </div>
 
   
 
 
         <button className="continue_btn" style={{ backgroundColor :"green"}} onClick={()=>{ handleClose() }} >
-        Confirm order
+        Confirm Order
         </button>
         {
-          enableOrderButon?<p style={{color:"red"}} >please place order greater than 250 </p>:<></>
+          enableOrderButon?<p style={{color:"red"}} >Please place order greater than ₹250 </p>:<></>
         }
         </div>
 {/* 
@@ -636,14 +662,14 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
   <div className="button_wrapper" style={{flexDirection:"coloumn", }}>
         
                   <button className="continue_btn" style={{ display:'inline-block', backgroundColor :"green" }} onClick={()=>{ PlaceOrder() }} >
-                    Confirm order
+                    Confirm Order
                     </button>
 
                   <button className="continue_btn" style={{ display:'inline-block',backgroundColor :"green"}} 
                     onClick={()=>{ 
                       history.push("/")
                     }} >
-                    Add more
+                    Go To Home 
                     </button>
 
 
