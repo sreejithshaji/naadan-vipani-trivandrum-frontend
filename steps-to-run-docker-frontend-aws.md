@@ -22,7 +22,7 @@ sudo rm -r naadan-vipani-trivandrum-frontend/
 git clone "https://github.com/sreejithshaji/naadan-vipani-trivandrum-frontend.git" -b master
 
 
-
+cd to the new git cloned file 
 
 sudo docker build -t html-server-image:v1 .
 
