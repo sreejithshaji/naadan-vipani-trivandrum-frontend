@@ -386,7 +386,7 @@ function  ContextProvider(props) {
         catch
         {
             var data =  userValues.user_address[0];
-            // console.log("init kit ");
+            console.log("init kit catched error ");
             // await fetch('https://api.npms.io/v2/search?q=react')
             
             await axios({
