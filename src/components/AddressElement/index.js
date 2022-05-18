@@ -4,6 +4,12 @@ import Select from 'react-select';
 // import Popup from './Popup';
 
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 import {ContextConsumer} from '../../utils/Context'
 
 // import {constants} from '../../constants/values'
@@ -15,6 +21,7 @@ import { useHistory } from "react-router-dom";
 
 const AddressElement = () => {
 
+  const notify = () => toast("Wow so easy!");
 
 
 // MODAL
@@ -25,11 +32,15 @@ const AddressElement = () => {
     console.log("handle close called ")
 
 
-    if(inputs.full_name===""||inputs.house_name==="" || inputs.block===""|| inputs.district===""|| inputs.pincode===""|| inputs.street_name==="" )
+    if(inputs.full_name===""||inputs.house_name==="" || inputs.block===""|| inputs.district===""|| inputs.pincode===""|| inputs.street_name==="")
       {
         console.log("empty data")
         setShow(true)
         seteditName(true) 
+      }
+      else if(inputs.order_slot==="" )
+      {
+        console.log("select slot")
       }
       else{
         console.log("move forward")
@@ -40,8 +51,6 @@ const AddressElement = () => {
       //  setShow(!show)
     };
 // MODAL
-
-
 
 
 
@@ -177,7 +186,15 @@ const AddressElement = () => {
 
 
 
-  const [editName , seteditName] = useState(false) ;
+
+  var editstartBool=false;
+  if(inputs.full_name==="" && contextValues.user_address.full_name==="name" ){
+    editstartBool=true;
+  }
+  
+  const [editName , seteditName] = useState(editstartBool) ;
+
+  
 
 
 
@@ -189,13 +206,18 @@ const AddressElement = () => {
       var pincode ="";
       var street_name ="";
       
+      console.log( " update address :  ",  inputs.full_name, inputs.house_name, inputs.street_name, inputs.pincode)
+
       if(inputs.full_name===""||inputs.house_name==="" || inputs.block===""|| inputs.district===""|| inputs.pincode===""|| inputs.street_name==="" )
       {
         // console.log(" please enter valid data  ")
+        seteditName(true) 
       }
       else{
         seteditName(false) 
+        console.log( " update else address :  ", inputs.full_name, inputs.house_name, inputs.street_name, inputs.pincode)
         contextValues.UpdateAddressToDb(inputs.full_name, inputs.house_name, inputs.street_name, inputs.pincode)
+        contextValues.initUserAddress()
       }
       // contextValues.placeOrder()
     }
@@ -291,7 +313,7 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
 {/* <AddressViewOnly/> */}
 
 {
-  inputs.full_name===""|| editName?
+  editName?
     <form onSubmit={onSubmit} >
         <div class="group col-lg-12 col-md-12 col-sm-12 col-xm-12">      
           <input type="text" placeholder="full name "  name="full_name" 
@@ -424,6 +446,7 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
                               <option value="2">Manganam</option>
                               <option value="3">Puthuppalli</option>
                             </select>
+                            
                           </>
                           
                           :
@@ -433,10 +456,6 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
                           { 
                             inputs.block==="0"?<p style={{color:"red"}} >please select block</p>:<></>
                           }
-
-                          <button className="continue_btn" onClick={()=>{ UpdateAddress() }} >
-                                      Confirm address
-                          </button>
 
                       </>
                       :
@@ -455,6 +474,16 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
 
   </div>
 
+
+{
+  editName?
+  <button className="continue_btn" onClick={()=>{ UpdateAddress() }} >
+          Confirm address
+  </button>
+  :
+  <></>
+}
+
   <div class="group col-lg-12 col-md-12 col-sm-12 col-xm-12"> 
     <p>Delivery Time Slot</p>
 
@@ -466,40 +495,6 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
       </div> */}
 
 
-{
-  orderSlotAdjuster==1?
-  <>
-    <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6">
-        <input 
-        onChange={handleChange} 
-         type="radio" name="order_slot" id="radio1" value="1" required/>
-        <label for="radio1">tomorrow Morning Section -9am to 12pm </label>
-    </div>
-
-    <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6">
-      <input 
-        onChange={handleChange} 
-        type="radio" name="order_slot" id="radio2" value="2"/>
-      <label for="radio2">tomorrow Section -1pm to 6pm</label>
-    </div>
-    </>
-    :
-    <>
-    <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6"  >
-      <input 
-        onChange={handleChange} 
-        type="radio" name="order_slot" id="radio3" value="3"/>
-      <label for="radio3">Afternoon Section-1pm to 6pm</label>
-    </div>
-    <div class="radio-box flex col-lg-6 col-md-6 col-sm-6 col-xm-6"  >
-    <input 
-      onChange={handleChange} 
-      type="radio" name="order_slot" id="radio4" value="4"/>
-    <label for="radio4">Tomorrow Morning Section-9am to 1pm</label>
-  </div>
-  </>
-
-}
 
     { 
       inputs.order_slot===""?<p style={{color:"red"}} >please select time slot </p>:<></>
@@ -627,10 +622,16 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
 
   
 
+        {  
+          !editName?
+            <button className="continue_btn" style={{ backgroundColor :"green"}} onClick={()=>{ handleClose() }} >
+            Place Order
+            </button>
+            :
+            <></>
+        }
 
-        <button className="continue_btn" style={{ backgroundColor :"green"}} onClick={()=>{ handleClose() }} >
-        Confirm Order
-        </button>
+
         {
           enableOrderButon?<p style={{color:"red"}} >Please place order greater than ₹250 </p>:<></>
         }
@@ -661,7 +662,13 @@ const [orderSlotAdjuster , setorderSlotAdjuster ] = useState(slotSelectorHere)
 {/* <div style={{ width:"100%"}} > */}
   <div className="button_wrapper" style={{flexDirection:"coloumn", }}>
         
-                  <button className="continue_btn" style={{ display:'inline-block', backgroundColor :"green" }} onClick={()=>{ PlaceOrder() }} >
+                  <button className="continue_btn" style={{ display:'inline-block', backgroundColor :"green" }} onClick={()=>{ 
+                    PlaceOrder() 
+                    alert("Your order has been plased successfully")
+                    // alert
+                    
+                    history.push("/")
+                    }} >
                     Confirm Order
                     </button>
 

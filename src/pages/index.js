@@ -15,6 +15,7 @@ import AddToCartlist from '../components/AddToCartElement'
 
 import {ContextConsumer} from '../utils/Context'
 
+
 const Home = () => {
     const contextValues = useContext(ContextConsumer);
 
@@ -69,12 +70,17 @@ const Home = () => {
             {/* <MobileNav isOpen={isOpen} toggle={toggle}/> */}
             {/* <Navbar toggle={toggle}/> */}
             <Navbar/>
+            
             <HeroSection />
             <Products heading='Vegetables'/>        
             {/* <Products heading='Vegetables' data={productData} />         */}
             {/* <Products heading='Groceries' data={productData} />         */}
+            
+            
             <Footer />
+            
             {/* <AddToCartlist data={productData}/> */}
+            
         </div>
     )
 }
