@@ -25,12 +25,12 @@ function App() {
 
   // used to open routes
   let history = useHistory()
-  if(isAuthenticated){
-    
+  if(isAuthenticated()){
+    history.push('/')
   }
   else{
     console.log("not authenticated")
-    history.push('/')
+    // history.push('/')
   }
   // used to open routes
 
@@ -186,13 +186,21 @@ function App() {
     //   user_address : [user_data[0]],
     // })
 
-    await contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
-    
+    try{
+      await contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
+    }catch{
+
+    }
     
     console.log("completed")
 
 
-      history.push("/")
+    history.push("/")
+  }
+
+
+  const RedirectToLoginScreen = async () =>{
+    history.push("/login")
   }
 
   const submitOTP =  (e)=>{
@@ -409,7 +417,8 @@ function App() {
                           // then we set SetshowGetOtpButton(true) 
                           // so that the enter phone number page is displayed
                           SetshowGetOtpButton(true)
-                          RedirectToHome()
+                          RedirectToLoginScreen()
+                          
                         }} >
                     Retry again
               </a>
