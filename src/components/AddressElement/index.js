@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import "./style.css";
-import Select from 'react-select';
-// import Popup from './Popup';
-
-
-
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -20,8 +13,6 @@ import { useHistory } from "react-router-dom";
 // import { MdHistoryEdu } from 'react-icons/md';
 
 const AddressElement = () => {
-
-  const notify = () => toast("Wow so easy!");
 
 
 // MODAL
