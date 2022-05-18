@@ -60,11 +60,11 @@ function App() {
     
     if(name==="district"){
       console.log(" district: ", event.target.value   )
-      contextValues.setblock( event.target.value )
+      contextValues.setdistrict( event.target.value )
     }
     if(name==="block"){
       console.log(" block: ", event.target.value   )
-      contextValues.setdistrict(event.target.value)
+      contextValues.setblock(event.target.value)
     }
 
     // console.log( "district: ", contextValues.district, " block:", contextValues.block );
