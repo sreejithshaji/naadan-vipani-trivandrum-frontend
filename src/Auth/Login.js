@@ -276,6 +276,15 @@ function App() {
                         <select type="text" name="district" placeholder="district" onChange={handleChange('district')} value={values.district} required> 
                           <option value="0">select</option>
                           <option value="1">Trivandrum</option>
+                          <option value="2">Eranakulam</option>
+                          <option value="3">Alappuzha</option>
+                          <option value="4">Kottayam</option>
+                          <option value="5">Kollam</option>
+                          <option value="6">Thrissur</option>
+                          <option value="7">Kozhikode</option>
+                          <option value="8">Kannur</option>
+                          <option value="9">Pathanamthitta</option>
+                          <option value="10">Palakkad</option>
                           {/* <option value="2">Eranakulam</option>
                           <option value="3">Alappuzha</option>
                           <option value="4">Kottayam</option>
@@ -299,8 +308,8 @@ function App() {
                           <>
                             <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
                               <option value="0">select</option>
-                              <option value="1">Kochi</option>
-                              <option value="2">kaakkanadu</option>
+                              <option value="1">Kakkanad</option>
+                              {/* <option value="2">Haritha supermarket</option> */}
                             </select>
                           </>
                           :
@@ -308,8 +317,71 @@ function App() {
                           <>
                             <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
                               <option value="0">select</option>
-                              <option value="1">Alappuzha 1</option>
-                              <option value="2">Alappuzha 2</option>
+                              <option value="1">Alappuzha </option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="4"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Kottayam Town</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="5"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Keralapuram</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="6"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Koorkencherry</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="7"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Kakkodi</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="8"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Kannnur</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="9"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Pazhakulam</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
+                            </select>
+                          </>
+                          :
+                          values.district==="10"?
+                          <>
+                            <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
+                              <option value="0">select</option>
+                              <option value="1">Ottappalam</option>
+                              {/* <option value="2">Alappuzha 2</option> */}
                             </select>
                           </>
                           :

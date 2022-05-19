@@ -75,8 +75,35 @@ const Products = ({heading, data}) => {
 
                         var cartFound =item.foundIndex>-1;
                         return (
+                            <>
+                                {
+                                    product.show_or_hide?
+                                    <ProductElement product={product} index={index} item={item} cartFound={cartFound} />
+                                    :
+                                    <></>
+                                }
+                            </>
+                            
+                        )
 
-                            <ProductCard key={index}> 
+                    })}
+                </ProductsWrapper>
+                :
+                <>
+                    <ProductsH1>Sorry, there are no products available for this location</ProductsH1>
+                </>
+            }
+        </ProductsContainer>
+    )
+}
+
+
+
+
+function ProductElement({index , item, product, cartFound }){
+    return(
+        <>
+        <ProductCard key={index}> 
                             <ProductBadge >naadan</ProductBadge>    
                             <ProductImage src={product.image_url}/>
                             <ProductName>{product.name}</ProductName>
@@ -96,21 +123,9 @@ const Products = ({heading, data}) => {
 
                             </ProductDetailsWrapper>
                             </ProductCard>
-                            
-                        )
-
-                    })}
-                </ProductsWrapper>
-                :
-                <>
-                    <ProductsH1>Sorry, there are no products available for this location</ProductsH1>
-                </>
-            }
-        </ProductsContainer>
+        </>
     )
 }
-
-
 
 
 

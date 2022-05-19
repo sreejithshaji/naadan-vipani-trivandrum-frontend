@@ -322,6 +322,7 @@ function  ContextProvider(props) {
                                 pincode:"name",
                                 district:`${district}`, 
                                 block:`${block}`, 
+                                delivery_location:"1",
                                 // district:"1", 
                                 // block:"1",
                            },
@@ -455,6 +456,7 @@ function  ContextProvider(props) {
                                 pincode:pincode,
                                 district:newDistrict, 
                                 block:newBlock,
+                                delivery_location:"1",
                            },
         })
         .then(res =>{
@@ -510,6 +512,7 @@ function  ContextProvider(props) {
                                 pincode:pincode,
                                 district:userValues.user_address[0].district, 
                                 block:userValues.user_address[0].block,
+                                delivery_location:"1"
                            },
         })
         .then(res =>{
