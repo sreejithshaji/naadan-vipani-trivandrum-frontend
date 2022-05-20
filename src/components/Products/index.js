@@ -108,8 +108,12 @@ function ProductElement({index , item, product, cartFound }){
                             <ProductImage src={product.image_url}/>
                             <ProductName>{product.name}</ProductName>
 
-
-                            <ProductNewPrice>₹{product.price} / {constants.MINIMUM_QUANTITY} gm</ProductNewPrice>
+                            {
+                                product.minimum_quantity==1?
+                                <ProductNewPrice>₹{product.price} / {product.minimum_quantity} PC</ProductNewPrice>
+                                :
+                                <ProductNewPrice>₹{product.price} / {product.minimum_quantity} gm</ProductNewPrice>
+                            }
 
                             <ProductDetailsWrapper>
                                 
