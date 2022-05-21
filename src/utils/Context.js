@@ -298,7 +298,7 @@ function  ContextProvider(props) {
         
         let phoneNo = isAuthenticated().phoneNumber;
         
-        // console.log(" updateNull address : " , district , block );
+        console.log(" updateNull address : " , district , block );
 
         let phoneNumber;
         try{
@@ -350,6 +350,8 @@ function  ContextProvider(props) {
 
 
     const initKitProducts = async ()=>{
+        console.log("district : ", district)
+        console.log("block : ", block)
         console.log("values at init kit here  :  " , userValues.user_address[0] );
 
         try{
@@ -358,7 +360,10 @@ function  ContextProvider(props) {
 
         console.log("values at init kit, dataLoader.district :" , dataLoader.district );
         console.log("values at init kit, dataLoader.block :" , dataLoader.block );
-        
+        if(dataLoader.district==0){
+            dataLoader.district=district;
+            dataLoader.block = block;
+        }
             console.log("init kit called user dataLoader is : ", dataLoader);
             // await fetch('https://api.npms.io/v2/search?q=react')
             
@@ -430,7 +435,8 @@ function  ContextProvider(props) {
         
         let phoneNo = isAuthenticated().phoneNumber;
         
-        console.log(" update address : " , userValues.user_address[0] );
+        console.log(" UpdateAddressToDbForBlockAndDistrictSet address : " , full_name );
+
 
         let phoneNumber;
         try{
