@@ -1,4 +1,4 @@
-import React, {  useState, useContext } from 'react'
+import React, {  useState, useContext, useEffect } from 'react'
 
 import Firebase from './Firebase'
 // import { AppContext } from '../utils/AppContext';
@@ -22,6 +22,7 @@ function App() {
   // signOut();
 
   const contextValues = useContext(ContextConsumer);
+
 
   // used to open routes
   let history = useHistory()
@@ -174,6 +175,7 @@ function App() {
 
     // started
     console.log("here")
+    // await contextValues.initUserAddress()
 
     var user_data = contextValues.user_address[0];
 
@@ -186,11 +188,21 @@ function App() {
     //   user_address : [user_data[0]],
     // })
 
+
     try{
-      await contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
+      console.log("called from try ")
+      if(user_data.full_name==="undefined"){
+        console.log(" data is undefined ")
+        contextValues.UpdateAddressToDbForBlockAndDistrictSet("name", "name", "name", "name", contextValues.district, contextValues.block )
+      }
+      else{
+        await contextValues.UpdateAddressToDbForBlockAndDistrictSet(user_data.full_name, user_data.house_name, user_data.street_name, user_data.pincode, contextValues.district, contextValues.block )
+      }
+      
     }
     catch
     {
+      console.log("called from catch ")
       contextValues.UpdateAddressToDbForBlockAndDistrictSet("name", "name", "name", "name", contextValues.district, contextValues.block )
     }
     

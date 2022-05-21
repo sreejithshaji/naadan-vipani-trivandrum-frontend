@@ -322,7 +322,7 @@ function  ContextProvider(props) {
                                 pincode:"name",
                                 district:`${district}`, 
                                 block:`${block}`, 
-                                delivery_location:"1",
+                                delivery_point:"1",
                                 // district:"1", 
                                 // block:"1",
                            },
@@ -435,7 +435,13 @@ function  ContextProvider(props) {
         
         let phoneNo = isAuthenticated().phoneNumber;
         
-        console.log(" UpdateAddressToDbForBlockAndDistrictSet address : " , full_name );
+        console.log(" UpdateAddressToDbForBlockAndDistrictSet full_name : " , full_name );
+        console.log(" UpdateAddressToDbForBlockAndDistrictSet house_name : " , house_name );
+        console.log(" UpdateAddressToDbForBlockAndDistrictSet street_name : " , street_name );
+        console.log(" UpdateAddressToDbForBlockAndDistrictSet pincode : " , pincode );
+
+        console.log("UpdateAddressToDbForBlockAndDistrictSet district : " , newDistrict );
+        console.log("UpdateAddressToDbForBlockAndDistrictSet block : " , newBlock );
 
 
         let phoneNumber;
@@ -445,6 +451,15 @@ function  ContextProvider(props) {
         catch{
 
         }
+
+        // id:`${phoneNumber}`,
+        // full_name:`${full_name}`,
+        // house_name:house_name,
+        // street_name:street_name, 
+        // pincode:pincode,
+        // district:userValues.user_address[0].district, 
+        // block:userValues.user_address[0].block,
+        // delivery_point:"1"        
 
         // return 0;
         // newDistrict, newBlock
@@ -456,16 +471,16 @@ function  ContextProvider(props) {
                             },
             'data'      :  {
                                 id:`${phoneNumber}`,
-                                full_name:`${full_name}`,
+                                full_name:full_name,
                                 house_name:house_name,
                                 street_name:street_name, 
                                 pincode:pincode,
                                 district:newDistrict, 
                                 block:newBlock,
-                                delivery_location:"1",
+                                delivery_point:1,
                            },
         })
-        .then(res =>{
+        .then( async (res) =>{
             if(res.status === 201)
             {
                 // console.log(" data pushed : " , res.data )
@@ -475,9 +490,9 @@ function  ContextProvider(props) {
                                 user_address : [res.data], 
                             })
 
-                initUserAddress()
+                await initUserAddress()
 
-                initKitProducts()
+                await initKitProducts()
             }
         }).catch(err=>{
             
@@ -518,7 +533,7 @@ function  ContextProvider(props) {
                                 pincode:pincode,
                                 district:userValues.user_address[0].district, 
                                 block:userValues.user_address[0].block,
-                                delivery_location:"1"
+                                delivery_point:"1"
                            },
         })
         .then(res =>{

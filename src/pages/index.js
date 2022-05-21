@@ -72,7 +72,8 @@ const Home = () => {
             <Navbar/>
             
             <HeroSection />
-            <Products heading='Vegetables'/>        
+            <div style={{alignItems:"center",alignCenter:"center",textAlign:'center',backgroundColor:'#ffff' }} >no delivery will be available on sunday </div>
+            <Products heading='Vegetables'/>
             {/* <Products heading='Vegetables' data={productData} />         */}
             {/* <Products heading='Groceries' data={productData} />         */}
             
