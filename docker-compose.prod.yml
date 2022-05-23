@@ -3,10 +3,10 @@ services:
   nginex-app:
     image: nginx:alpine
     ports:
-      - "80:80"
+      - "80:8000"
     environment:
       - PORT=80
     env_file:
       - ./.env
-    volumes:
-      - /home/ubuntu/horticorp-vipani/naadanvipani-frontend:/etc/nginx/nginx.conf
+    # volumes:
+    #   - /home/ubuntu/horticorp-vipani/naadanvipani-frontend:/etc/nginx/nginx.conf
