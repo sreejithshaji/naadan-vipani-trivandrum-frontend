@@ -17,21 +17,21 @@ const firebaseConfig = {
     // appId: "1:200175687290:web:7bed491b0b9c75ab76cdc3",
     // measurementId: "G-LQHZ6BXRW4"
 
-    // apiKey: "AIzaSyBDDbwCD7e8XwkjFDBr_P3R-9d-m6p15Kg",
-    // authDomain: "horticorp-online-otp-auth.firebaseapp.com",
-    // projectId: "horticorp-online-otp-auth",
-    // storageBucket: "horticorp-online-otp-auth.appspot.com",
-    // messagingSenderId: "632252213733",
-    // appId: "1:632252213733:web:be23d344b2c4c7b5d1270c",
-    // measurementId: "G-XFYVZ3H40K"
+    apiKey: "AIzaSyBDDbwCD7e8XwkjFDBr_P3R-9d-m6p15Kg",
+    authDomain: "horticorp-online-otp-auth.firebaseapp.com",
+    projectId: "horticorp-online-otp-auth",
+    storageBucket: "horticorp-online-otp-auth.appspot.com",
+    messagingSenderId: "632252213733",
+    appId: "1:632252213733:web:be23d344b2c4c7b5d1270c",
+    measurementId: "G-XFYVZ3H40K"
 
-    apiKey: "AIzaSyD1zijDVh5T2TjB9SGqJhb6SfRBXSMP4n0",
-    authDomain: "horticrp-auth-new.firebaseapp.com",
-    projectId: "horticrp-auth-new",
-    storageBucket: "horticrp-auth-new.appspot.com",
-    messagingSenderId: "474758409054",
-    appId: "1:474758409054:web:c0695696bef004e3bafdcf",
-    measurementId: "G-VGLNRQJH9B"
+    // apiKey: "AIzaSyD1zijDVh5T2TjB9SGqJhb6SfRBXSMP4n0",
+    // authDomain: "horticrp-auth-new.firebaseapp.com",
+    // projectId: "horticrp-auth-new",
+    // storageBucket: "horticrp-auth-new.appspot.com",
+    // messagingSenderId: "474758409054",
+    // appId: "1:474758409054:web:c0695696bef004e3bafdcf",
+    // measurementId: "G-VGLNRQJH9B"
   };
 
 firebase.initializeApp(firebaseConfig)
