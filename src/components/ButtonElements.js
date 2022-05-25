@@ -3,7 +3,7 @@ import {Link} from 'react-scroll'
 
 
 export const Button = styled(Link)`
-    border-radius: 10px;
+    border-radius: 30px;
     background: ${({primary}) => (primary ? '#fccd04' : '#010606')};
     white-space: nowrap;
     padding: ${({big}) => (big ? '24px 48px' : '12px 30px')};
@@ -17,6 +17,7 @@ export const Button = styled(Link)`
     align-items: center;
     transition: all 0.3s ease-in-out;
     font-weight: 500;
+    text-decoration: none;
 
     &:hover {
         transition: all 0.3s ease-in-out;

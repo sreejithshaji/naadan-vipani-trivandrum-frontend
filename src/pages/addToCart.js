@@ -34,7 +34,7 @@ const CartWrapper = styled.div`
         // }
 
         // max-width: 100vh;
-        margin:10% 0% 0% 0%;
+        margin:110px 0% 0% 0%;
         display: grid;
         grid-template-columns: 2fr 1fr;
         
@@ -62,8 +62,6 @@ const AddToCart = () => {
     const toggle = () => {
         setIsOpen(!isOpen);
     }; 
-
-
 
 
 

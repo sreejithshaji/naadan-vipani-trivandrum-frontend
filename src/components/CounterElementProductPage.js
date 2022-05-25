@@ -17,7 +17,6 @@ const CounterContainer = styled.div`
     justify-content: center;
     align-items: flex-center;
     align-content:center;
-
     padding: 0px;
     margin: 0px;
     max-width: 100px;
@@ -25,7 +24,7 @@ const CounterContainer = styled.div`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transition: all 0.2s ease-in-out;
     border:2px solid #000000;
-    border-radius:8px;
+    border-radius:15px;
 
 
 `;
@@ -37,6 +36,7 @@ const ButtonContainer = styled.div`
     width:40%;
     background-color: #fffff;
     display: flex;
+    align-items: center;
 
     &:hover {
         transition: all 0.3s ease-in-out;
@@ -51,12 +51,13 @@ const TextContainer = styled.div`
 
     flex-direction: column;
     display:flex;
-    // padding:10px;
+    //padding:10px;
     margin:0px;
     justify-content: center;
     align-item:center;
     text-align: center;
-   
+    justify-items: center;
+    
 
 
 `;
@@ -98,12 +99,13 @@ const CounterTest = styled.h2`
 
     font-size: 18px;
     color: #56abcd;
+    margin: 0px;
 
 `;
 
 
 
-const CounterElementProductPage = ({productId,quantity,  isInCart }) => {
+const CounterElementProductPage = ({productId,quantity,  isInCart, notify }) => {
     
   const contextValues = useContext(ContextConsumer);
   
@@ -176,7 +178,9 @@ const CounterElementProductPage = ({productId,quantity,  isInCart }) => {
 
     
         <ProductBtnWrapper>
-            <AddToBagBtn onClick={()=>{ contextValues.AddToCart(productId , counter) }}  to='/' >
+            <AddToBagBtn onClick={()=>{ contextValues.AddToCart(productId , counter)
+                                         notify()
+                                      }}  to='/' >
             Add to Cart { <BagIcon /> }
             </AddToBagBtn>
         </ProductBtnWrapper>

@@ -22,7 +22,8 @@ const CounterContainer = styled.div`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transition: all 0.2s ease-in-out;
     border:2px solid #000000;
-    border-radius:8px;
+    border-radius:15px;
+    justify-items: center;
 
 
 `;
@@ -48,11 +49,12 @@ const TextContainer = styled.div`
 
     flex-direction: column;
     display:flex;
-    // padding:10px;
+    //padding:10px;
     margin:0px;
     justify-content: center;
     align-item:center;
     text-align: center;
+    
    
 
 
@@ -95,6 +97,7 @@ const CounterTest = styled.h2`
 
     font-size: 18px;
     color: #56abcd;
+    margin: 0px;
 
 `;
 

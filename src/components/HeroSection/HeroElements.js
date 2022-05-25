@@ -127,6 +127,8 @@ export const HeroBtnWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 30px;
+    text-decoration: none;
     
 `
 /*================= Hero Section -> Content -> ButtonWrapper -> ArrowForward  ==================*/

@@ -16,7 +16,13 @@ import AddToCartlist from '../components/AddToCartElement'
 import {ContextConsumer} from '../utils/Context'
 
 
+
+
+
 const Home = () => {
+    
+    
+
     const contextValues = useContext(ContextConsumer);
 
     // const [run_,setRun_] = useEffect(false);
@@ -58,11 +64,12 @@ const Home = () => {
 
     // console.log("values index : " ,contextValues.userValues);
     
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => {
-        setIsOpen(!isOpen);
-    }; 
+    // const toggle = () => {
+    //     setIsOpen(!isOpen);
+    // }; 
+
 
 
     return (
@@ -72,8 +79,13 @@ const Home = () => {
             <Navbar/>
             
             <HeroSection />
-            <div style={{alignItems:"center",alignCenter:"center",textAlign:'center',backgroundColor:'#ffff' }} >no delivery will be available on sunday </div>
-            <Products heading='Vegetables'/>
+            <div style={{alignItems:"center",alignCenter:"center",textAlign:'center',backgroundColor:'#FB5050', padding: '30px', color: '#FFF', fontWeight: 'bolder' }}> No delivery will be available on SUNDAY. </div>
+            <Products heading='Vegetables' />
+
+            
+            
+            {/* <button onClick={notify}>Notify!</button> */}
+
             {/* <Products heading='Vegetables' data={productData} />         */}
             {/* <Products heading='Groceries' data={productData} />         */}
             

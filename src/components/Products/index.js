@@ -15,6 +15,20 @@ import styled from "styled-components";
 import {ContextConsumer} from '../../utils/Context'
 import {constants} from '../../constants/values';
 
+
+
+
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+const notify = () => {
+    toast.success("Added to cart !");
+}
+
 const Products = ({heading, data}) => {
 
     const contextValues = useContext(ContextConsumer);
@@ -64,6 +78,7 @@ const Products = ({heading, data}) => {
 
     return (
         <ProductsContainer id="products">
+            <ToastContainer />
             <ProductsH1>{heading}</ProductsH1>
             {  
                 contextValues.products_veg.length>0?
@@ -78,7 +93,7 @@ const Products = ({heading, data}) => {
                             <>
                                 {
                                     product.show_or_hide?
-                                    <ProductElement product={product} index={index} item={item} cartFound={cartFound} />
+                                    <ProductElement product={product} index={index} item={item} cartFound={cartFound} notify={notify} />
                                     :
                                     <></>
                                 }
@@ -100,11 +115,11 @@ const Products = ({heading, data}) => {
 
 
 
-function ProductElement({index , item, product, cartFound }){
+function ProductElement({index , item, product, cartFound, notify }){
     return(
         <>
         <ProductCard key={index}> 
-                            <ProductBadge >naadan</ProductBadge>    
+                            {/* <ProductBadge >naadan</ProductBadge>     */}
                             <ProductImage src={product.image_url}/>
                             <ProductName>{product.name}</ProductName>
 
@@ -119,11 +134,12 @@ function ProductElement({index , item, product, cartFound }){
                                 
                                 {
                                     cartFound?
-                                    <CounterElementProductPage quantity={item.output.quantity} isInCart={true} productId={product.id} />
+                                    <CounterElementProductPage notify={notify} quantity={item.output.quantity} isInCart={true} productId={product.id} />
                                     :
-                                    <CounterElementProductPage quantity={1} isInCart={false} productId={product.id} />
+                                    <CounterElementProductPage notify={notify} quantity={1} isInCart={false} productId={product.id} />
                                     
                                 }
+                                
 
                             </ProductDetailsWrapper>
                             </ProductCard>
