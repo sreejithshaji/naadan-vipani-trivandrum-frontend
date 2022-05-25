@@ -374,7 +374,7 @@ function App() {
                           <>
                             <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
                               <option value="0">select</option>
-                              <option value="1">Kannnur</option>
+                              <option value="1">Mangadu</option>
                               {/* <option value="2">Alappuzha 2</option> */}
                             </select>
                           </>
@@ -392,7 +392,7 @@ function App() {
                           <>
                             <select type="text" name="block" placeholder="block" onChange={handleChange('block')} value={values.block} required> 
                               <option value="0">select</option>
-                              <option value="1">Ottappalam</option>
+                              <option value="1">Kallekkadu</option>
                               {/* <option value="2">Alappuzha 2</option> */}
                             </select>
                           </>
